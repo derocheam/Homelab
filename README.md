@@ -1,6 +1,4 @@
 # Homelab
-Details about my HomeLab
-
 ### Hardware
 
 - SuperMicro CSE-826(https://supermicroesx.derochea.com):
