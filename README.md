@@ -10,6 +10,7 @@ Details about my HomeLab
     - ESX SSDs: 
       - `250GB Samsung_SSD_840_EVO_250GB`
       - `256GB C4002DMTFDDAK256MAM`
+    
     !!Passthrough to unraid via LSI SAS2008 onboard SATA and NVME PCI adapter
     - Array: `16TB Usable + 10GB Parity`
       - `8TB WDC_WD80EZAZ-11TDBA0_1SG9K1LZ - Disk 2`
