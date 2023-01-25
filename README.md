@@ -27,32 +27,32 @@ Details about my HomeLab
       - `18TB WDC_WD180EDGZ-11B2DA0_3GGD0SBF (sdi) - Dev8`
     - NVME: `1TB Samsung_SSD_970_EVO_1TB`
     - Docker:
-      - unifi-controller
-      - code-server
-      - mariadb
-      - gitea
-      - nginx-proxy-manager
-      - machinaris
-      - ddclient
-      - changedetection.io
-      - Tailscale
-      - vaultwarden
-      - borgmatic
-      - glances
-      - Docker-WebUI
+      - `unifi-controller`
+      - `code-server`
+      - `mariadb`
+      - `gitea`
+      - `nginx-proxy-manager`
+      - `machinaris`
+      - `ddclient`
+      - `changedetection.io`
+      - `Tailscale`
+      - `vaultwarden`
+      - `borgmatic`
+      - `glances`
+      - `Docker-WebUI`
 
 - HP290 (Ubuntu 20.04.5 LTS)
     - CPU: `Intel(R) Celeron(R) G4900 CPU @ 3.10GHz`
     - RAM: `12GB`
     - SSD: `256GB Samsung SSD 840`
     - Docker:
-      - home-assistant
-      - eclipse-mosquitto
-      - zwavejs2mqtt
-      - b3vis/borgmatic
-      - cloudflared
-      - node-red
-      - plex
+      - `home-assistant`
+      - `eclipse-mosquitto`
+      - `zwavejs2mqtt`
+      - `borgmatic`
+      - `cloudflared`
+      - `node-red`
+      - `plex`
       
  - HP290 (OPNsense 22.7.10_2)
     - CPU: `Intel(R) Celeron(R) G4900 CPU @ 3.10GHz`
@@ -60,11 +60,11 @@ Details about my HomeLab
     - SSD: `16GB Intel+Optane+Memory+M10+16GB+(MEMPEK1J016GAD)`
     
  - HP EliteDesk 800 G5 SFF
-    - CPU: i5-9600 3.1GHz
-    - RAM: 48GB `A-Tech 32GB DDR4 2666 MHz UDIMM PC4-21300 (PC4-2666V) CL19 DIMM 2Rx8 Non-ECC Desktop RAM Memory Module`
+    - CPU: `i5-9600 3.1GHz`
+    - RAM: `48GB A-Tech 32GB DDR4 2666 MHz UDIMM PC4-21300 (PC4-2666V) CL19 DIMM 2Rx8 Non-ECC Desktop RAM Memory Module`
     - SSD:
-      - 256GB
-      - 500GB Samsung_SSD_840_EVO
+      - `256GB`
+      - `500GB Samsung_SSD_840_EVO`
     
       
     
