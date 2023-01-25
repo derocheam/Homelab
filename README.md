@@ -24,7 +24,7 @@
       - `2TB WDC_WD20EARX-00PASB0_WD-WCAZAH621663 (sdl) - Dev7`
       - `18TB WDC_WD180EDGZ-11B2DA0_3GGD0SBF (sdi) - Dev8`
     - NVME: `1TB Samsung_SSD_970_EVO_1TB`
-    - Docker:
+    - Unraid Docker:
       - `unifi-controller`
       - `code-server`
       - `mariadb`
@@ -63,6 +63,20 @@
     - SSD:
       - `256GB`
       - `500GB Samsung_SSD_840_EVO`
+ ### Networking
+ - OPNsense 22.7.10_2 Router/Firewall
+    - DHCP
+        - Provides hostnames to unbound
+    - Unbound DNS
+        - Host overrides to forward custom DNS names to NginxProxyManager
+    - Adguard
+ - NginxProxyManager(on Unraid)
+    - provides wildcard letsencrypt cert for domain(namecheap) via Cloudflare
+    - provides https custom domain names for internal services with ssl certificates
+ - USW-Lite-8-PoE
+ - USW-Flex-Mini
+ - UAP-FlexHD
+ - UAP-AC-Lite
     
       
     
