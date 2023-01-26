@@ -9,19 +9,9 @@
         <th>Description</th>
     </tr>
     <tr>
-        <td><img width="32" src="https://simpleicons.org/icons/ansible.svg"></td>
-        <td><a href="https://www.ansible.com">Ansible</a></td>
-        <td>Automate bare metal provisioning and configuration</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://cncf-branding.netlify.app/img/projects/argo/icon/color/argo-icon-color.svg"></td>
-        <td><a href="https://argoproj.github.io/cd">ArgoCD</a></td>
-        <td>GitOps tool built to deploy applications to Kubernetes</td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://github.com/jetstack/cert-manager/raw/master/logo/logo.png"></td>
-        <td><a href="https://cert-manager.io">cert-manager</a></td>
-        <td>Cloud native certificate management</td>
+        <td><img width="32" src="https://nginxproxymanager.com/logo.png"></td>
+        <td><a href="https://nginxproxymanager.com/">NginxProxyManager</a></td>
+        <td>Reverse proxy and certificate management</td>
     </tr>
     <tr>
         <td><img width="32" src="https://avatars.githubusercontent.com/u/314135?s=200&v=4"></td>
@@ -36,7 +26,7 @@
     <tr>
         <td><img width="32" src="https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png"></td>
         <td><a href="https://ubuntu.com/download/server">Ubuntu Server</a></td>
-        <td>Base OS for Kubernetes nodes</td>
+        <td>Base OS for docker node</td>
     </tr>
     <tr>
         <td><img width="32" src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Gitea_Logo.svg"></td>
