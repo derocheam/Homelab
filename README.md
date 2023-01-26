@@ -34,7 +34,7 @@
         <td>Ephemeral PXE server and convenient tools container</td>
     </tr>
     <tr>
-        <td><img width="32" src="https://www.google.com/search?q=ubuntu&client=firefox-b-1-d&sxsrf=AJOqlzUaIhbXywcMokRVE4A2rFgn2KWXyQ:1674745172171&tbm=isch&source=iu&ictx=1&vet=1&fir=g2LZLHpVPJMdiM%252CQce3Y1oruAAVjM%252C%252Fm%252F03x5qm%253B8Uy649mSqIc7uM%252CNS7rlw9bPTLt0M%252C_%253BHLSNPRyNZcjpzM%252C9hBl9hjN6fNj2M%252C_%253BZ_TT-Q-Fr4wVBM%252CtPh6Sigm4rQFIM%252C_%253BmyT-pXDSJ9oziM%252Cz5Orou0PVbXdiM%252C_&usg=AI4_-kTkmsaIE1GtNUrJnka6zqbc0LMegg&sa=X&ved=2ahUKEwj69s34v-X8AhVyEVkFHVlhBZsQ_B16BAh3EAE#imgrc=g2LZLHpVPJMdiM"></td>
+        <td><img width="32" src="https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png"></td>
         <td><a href="https://ubuntu.com/download/server">Ubuntu Server</a></td>
         <td>Base OS for Kubernetes nodes</td>
     </tr>
