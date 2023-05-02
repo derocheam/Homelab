@@ -21,7 +21,7 @@
     <tr>
         <td><img width="32" src="https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png"></td>
         <td><a href="https://www.docker.com">Docker</a></td>
-        <td>Ephemeral PXE server and convenient tools container</td>
+        <td>Continaer management service</td>
     </tr>
     <tr>
         <td><img width="32" src="https://assets.ubuntu.com/v1/29985a98-ubuntu-logo32.png"></td>
