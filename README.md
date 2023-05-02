@@ -36,7 +36,7 @@
 </table>
 ### Hardware
 
-- SuperMicro CSE-826(https://supermicroesx.derochea.com):
+- SuperMicro CSE-826:
     - MB: `X9DRI-F`
     - CPU: `XEON E5-2680V2 10 CORE 2.80GHz`
     - RAM: `128GB Samsung M386B4G70DM0-CMA4+32GB+4Rx4+PC3-14900L+DDR3-1866MHz+Load+Reduced+DIMM`
