@@ -1,0 +1,220 @@
+version: '2'
+services:
+  watchyourlan:
+    container_name: watchyourlan
+    image: aceberg/watchyourlan
+    network_mode: host       
+    restart: unless-stopped
+    volumes:
+    - /home/mike/appdata/wyl:/data
+    environment:
+      TZ: US/New York              # required: needs your TZ for correct time
+      IFACE: "enp1s0" # required: 1 or more interface
+      GUIPORT: "8840"
+      GUIIP: "192.168.1.x"
+  cloudflared:
+    container_name: cloudflared-tunnel
+    image: cloudflare/cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=x
+  homeassistant:
+    container_name: homeassistant
+    restart: unless-stopped
+    image: homeassistant/home-assistant:stable
+    devices:
+#      - /dev:/dev
+      - /dev/ttyUSB1:/dev/ttyUSB1
+    volumes:
+      - /home/mike/appdata/homeassistant:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /home/mike/appdata/homeassistant/media:/media
+    network_mode: host
+    privileged: true
+    depends_on:
+      - "mosquitto"
+  hass-configurator:
+    container_name: hass-configurator
+    image: "causticlab/hass-configurator-docker:latest"
+    restart: unless-stopped
+    ports:
+      - "3218:3218/tcp"
+    volumes:
+      - "/home/mike/appdata/hass-configurator:/config"
+      - "/home/mike/appdata/homeassistant:/hass-config"
+  mosquitto:
+    container_name: mosquitto
+    restart: unless-stopped
+    image: eclipse-mosquitto
+    volumes:
+      - /home/mike/appdata/mosquitto:/mosquitto/config/
+      - /etc/localtime:/etc/localtime:ro
+    network_mode: host
+#    ports:
+#      - "1883:1883"
+#      - "9001:9001"
+  hadockermon:
+    container_name: hadockermon
+    restart: unless-stopped
+    image: philhawthorne/ha-dockermon
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/mike/appdata/hadockermon:/config
+    ports:
+      - "8126:8126"
+  nodered:
+    container_name: nodered
+    restart: unless-stopped
+    image: nodered/node-red
+    depends_on:
+      - "homeassistant"
+    user: root
+    volumes:
+      - /home/mike/appdata/noderednew/:/data
+      - /etc/localtime:/etc/localtime:ro
+      - /root/.ssh:/root/.ssh:ro
+    ports:
+      - "1880:1880"
+      - "3456:3456"
+      - "80:80"
+    environment:
+      - TZ=America/New_York
+      - PUID=99
+      - PGID=100
+  ringmqtt:
+    container_name: ringmqtt
+    restart: unless-stopped
+    image: tsightler/ring-mqtt:5.0.2
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /home/mike/appdata/ringmqtt/:/data
+    environment:
+      - "MQTTHOST=192.168.1.x"
+      - "MQTTPORT=1883"
+      - "MQTTRINGTOPIC=ring"
+      - "MQTTHASSTOPIC=hass/status"
+      - "MQTTUSER="
+      - "MQTTPASSWORD="
+      - "RINGTOKEN=x.x.x-x"
+      - "ENABLECAMERAS=false"
+      - "DEBUG=ring-mqtt"
+  portainer:
+    container_name: portainer
+    image: portainer/portainer
+    command: -H unix:///var/run/docker.sock
+    restart: always
+    ports:
+      - 9000:9000
+      - 8000:8000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/mike/appdata/portainer:/data
+  borgmatic2:
+    image: b3vis/borgmatic
+    restart: unless-stopped
+    cap_add:
+      - SYS_ADMIN
+    container_name: borgmatic2
+    devices:
+      - /dev/fuse:/dev/fuse
+    security_opt:
+      - apparmor:unconfined
+      - label:disable
+    environment:
+      - TZ=America/New_York
+      - PUID=99
+      - PGID=100
+    volumes:
+      - /home/mike/appdata/borgmatic2/cache:/root/.cache/borg:rw,slave
+      - /home/mike/appdata/borgmatic2/config:/etc/borgmatic.d:rw
+      - /home/mike/appdata/borgmatic2/borg_keys:/root/.config/borg:rw
+      - /home/mike/appdata/borgmatic2/ssh_keys:/root/.ssh:rw
+      - /mnt/borg:/mnt/fuse:rw,shared
+      - /home/mike/appdata:/home/mike/appdata:ro
+      - /var/lib/plexmediaserver:/var/lib/plexmediaserver:ro
+  wyze-bridge2:
+      container_name: wyze-bridge2
+      restart: unless-stopped
+      image: mrlt8/wyze-bridge:latest
+      ports:
+          - 1935:1935 # RTMP
+          - 8554:8554 # RTSP
+          - 8888:8888 # HLS
+          - 8889:8889 #WebRTC
+          - 8189:8189/udp # WebRTC/ICE
+          - 5000:5000 # WEB-UI
+      environment:
+          # [REQUIRED] Fill the following two lines:
+          - WYZE_EMAIL=x
+          - WYZE_PASSWORD=x
+          - SUBSTREAM=True
+          - TOTP_KEY=x
+          # [OPTIONAL] IP Address of the host to enable WebRTC e.g.,:
+          # - WB_IP=192.168.1.x
+
+
+  syslog-ng:
+    image: lscr.io/linuxserver/syslog-ng
+    container_name: syslog-ng
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - /home/mike/appdata/syslogng/:/config
+      - /home/mike/appdata/syslogng/log:/var/log #optional
+    ports:
+      - 514:5514/udp
+      - 601:6601/tcp
+      - 6514:6514/tcp
+    restart: unless-stopped
+  rtl_tcp:
+    image: librtlsdr
+    container_name: rtl_tcp
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    restart: unless-stopped
+    command: rtl_tcp -a 0.0.0.0
+
+  zwavejs2mqtt:
+    container_name: zwavejs2mqtt
+    image: zwavejs/zwavejs2mqtt:latest
+    restart: always
+    tty: true
+    stop_signal: SIGINT
+    environment:
+      - SESSION_SECRET=x
+      - ZWAVEJS_EXTERNAL_CONFIG=/usr/src/app/store/.config-db
+      # Uncomment if you want logs time and dates to match your timezone instead of UTC
+      # Available at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      #- TZ=America/New_York
+    networks:
+      - zwave
+    devices:
+      # Do not use /dev/ttyUSBX serial devices, as those mappings can change over time.
+      # Instead, use the /dev/serial/by-id/X serial device for your Z-Wave stick.
+      - /dev/ttyUSB0:/dev/ttyUSB0
+    volumes:
+      - /home/mike/appdata/zwave-config:/usr/src/app/store
+    ports:
+      - '8091:8091' # port for web interface
+      - '3000:3000' # port for Z-Wave JS websocket server
+  unmanic:
+    container_name: unmanic
+    image: josh5/unmanic:latest
+    ports:
+      - 8882:8888
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/New_York
+    volumes:
+      - /home/mike/appdata/unmanic:/config
+      - /data/:/library
+      - /tmp:/tmp/unmanic
+    devices:
+      - /dev/dri:/dev/dri 
+    restart: unless-stopped
+networks:
+  zwave:
