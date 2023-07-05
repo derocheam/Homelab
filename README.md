@@ -43,6 +43,11 @@
         <td><a href="https://unraid.net/">Unraid</a></td>
         <td>NAS OS</td>
     </tr>
+    <tr>
+        <td><img width="32" src="https://www.klipper3d.org/img/klipper-logo.png"></td>
+        <td><a href="https://www.klipper3d.org/">Klipper</a></td>
+        <td>3d Printer Firmware</td>
+    </tr>
 </table>
 ### Hardware
 
