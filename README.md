@@ -33,6 +33,11 @@
         <td><a href="https://gitea.com">Gitea</a></td>
         <td>Self-hosted Git service</td>
     </tr>
+    <tr>
+        <td><img width="32" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Home_Assistant_Logo.svg/519px-Home_Assistant_Logo.svg.png?20170316121847"></td>
+        <td><a href="https://www.home-assistant.io/">Home-Assistant</a></td>
+        <td>Self-hosted Git service</td>
+    </tr>
 </table>
 ### Hardware
 
