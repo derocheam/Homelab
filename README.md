@@ -38,6 +38,11 @@
         <td><a href="https://www.home-assistant.io/">Home-Assistant</a></td>
         <td>Self-hosted Home automation</td>
     </tr>
+    <tr>
+        <td><img width="32" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Unraid_logo.svg/512px-Unraid_logo.svg.png?20220714061117"></td>
+        <td><a href="https://unraid.net/">Unraid</a></td>
+        <td>NAS OS</td>
+    </tr>
 </table>
 ### Hardware
 
