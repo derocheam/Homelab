@@ -48,6 +48,11 @@
         <td><a href="https://www.klipper3d.org/">Klipper</a></td>
         <td>3d Printer Firmware</td>
     </tr>
+    <tr>
+        <td><img width="32" src="https://opnsense.org/wp-content/themes/OPNsense/assets/img/opnsense.png"></td>
+        <td><a href="https://opnsense.org/">OPNsense</a></td>
+        <td>Open source Firewall/Router </td>
+    </tr>
 </table>
 ### Hardware
 
