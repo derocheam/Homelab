@@ -146,7 +146,7 @@ services:
           - 5000:5000 # WEB-UI
       environment:
           # [REQUIRED] Fill the following two lines:
-          - WYZE_EMAIL=x
+          - WYZE_EMAIL=xxx
           - WYZE_PASSWORD=x
           - SUBSTREAM=True
           - TOTP_KEY=x
