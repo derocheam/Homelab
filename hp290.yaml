@@ -1,0 +1,47 @@
+##HP290##
+location:
+    source_directories:
+        - /home/mike/appdata
+        - /var/lib/media
+        #- /mnt/remotes
+    repositories:
+        - ssh://root@192.168.1.x/mnt/disks/easystore14/hp290_borg_repo
+
+
+    one_file_system: false
+    files_cache: mtime,size
+    patterns:
+        - '- [Tt]rash'
+        - '- [Cc]ache'
+    exclude_patterns:
+        - '*.log'
+        - '*.log.*'  
+    exclude_if_present:
+        - .nobackup
+        - .NOBACKUP
+
+storage:
+    encryption_passphrase: "***"
+    compression: lz4
+    archive_name_format: 'HP290-{now}'
+
+retention:
+    keep_daily: 7
+    keep_weekly: 4
+    keep_monthly: 6
+    prefix: 'HP290-'
+
+consistency:
+    checks:
+        - repository
+        - archives
+    prefix: 'HP290-'
+
+hooks:
+    before_backup:
+        - echo "Starting a backup."
+    after_backup:
+        - echo "Finished a backup."
+    on_error:
+        - echo "Error during prune/create/check."
+    healthchecks: https://hc-ping.com/*
