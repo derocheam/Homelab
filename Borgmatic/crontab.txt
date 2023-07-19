@@ -1,0 +1,2 @@
+0 1   * * * PATH=$PATH:/usr/bin /usr/local/bin/borgmatic prune create -v 1 --stats 2>&1 --monitoring-verbosity 1 --syslog-verbosity 1
+0 6   * * 3 PATH=$PATH:/usr/bin /usr/local/bin/borgmatic check -v 1 2>&1
